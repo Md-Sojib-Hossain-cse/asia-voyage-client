@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 
 const Root = () => {
     return (
-        <div>
+        <div className="open-sans">
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>

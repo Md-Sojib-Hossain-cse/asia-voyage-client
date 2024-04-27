@@ -16,27 +16,27 @@ const Navbar = () => {
 
 
     const navLinks = <>
-        <li className="text-[#131313]"><NavLink to="/" className={({ isActive }) =>
-            isActive ? "bg-transparent text-[#FF681A] text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
+        <li className="text-white"><NavLink to="/" className={({ isActive }) =>
+            isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
         }>Home</NavLink></li>
-        <li className="text-[#131313]"><NavLink to="/allSpot"
+        <li className="text-white"><NavLink to="/allSpot"
             className={({ isActive }) =>
-                isActive ? "bg-transparent text-[#FF681A] text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
+                isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
             }
         >All Spot</NavLink></li>
-        <li className="text-[#131313]"><NavLink to="/addSpot"
+        <li className="text-white"><NavLink to="/addSpot"
             className={({ isActive }) =>
-                isActive ? "bg-transparent text-[#FF681A] text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
+                isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
             }
         >Add Spot</NavLink></li>
-        <li className="text-[#131313]"><NavLink to="/myList"
+        <li className="text-white"><NavLink to="/myList"
             className={({ isActive }) =>
-                isActive ? "bg-transparent text-[#FF681A] text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
+                isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
             }
         >My List</NavLink></li>
     </>
     return (
-        <div className="sticky">
+        <div className="sticky top-0 w-full bg-[#13131344] drop-shadow-lg shadow-lg backdrop-blur-sm z-10">
             <div className="navbar max-w-6xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -47,9 +47,9 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <p>
+                    <p className="great-vibes">
                         <span className="text-2xl font-bold text-[#FF681A]">Asia</span>
-                        <span className="text-2xl font-bold text-[#131313]">Voyage</span>
+                        <span className="text-2xl font-bold text-white">Voyage</span>
                     </p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -61,14 +61,14 @@ const Navbar = () => {
                     userLoginStatus ?
                         <div className="navbar-end">
                             <div className="dropdown dropdown-hover">
-                            <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full border border-[#131313]" />
+                                <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full border border-[#131313]" />
                                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 relative right-0">
                                     <li className="text-lg text-center font-medium py-3">{user?.displayName}</li>
                                     <li><button onClick={handleLogOut} className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">LogOut</button></li>
                                 </ul>
                             </div>
-                            
-                            
+
+
                         </div> :
                         <div className="navbar-end gap-3">
                             <Link to="/register"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Register</button></Link>

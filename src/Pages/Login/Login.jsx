@@ -5,7 +5,7 @@ import { IoLogoGoogle, IoLogoFacebook } from "react-icons/io5";
 
 const Login = () => {
     const [error, setError] = useState(null);
-    const { loginUser, googleLogin, facebookLogin , setUser} = useContext(AuthContext);
+    const { loginUser, googleLogin, facebookLogin , setUser } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
