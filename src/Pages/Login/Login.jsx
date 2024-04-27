@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
+import { IoLogoGoogle, IoLogoFacebook } from "react-icons/io5";
 
 const Login = () => {
     const [error, setError] = useState(null);
-    const { loginUser, googleLogin } = useContext(AuthContext);
+    const { loginUser, googleLogin, facebookLogin } = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -26,6 +27,18 @@ const Login = () => {
     //handle google login
     const handleGoogleLogin = () => {
         googleLogin()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+
+    //handle facebook login
+    const handleFacebookLogin = () => {
+        facebookLogin()
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -60,9 +73,12 @@ const Login = () => {
                             }
                             <p className="text-white font-medium mt-6">Do not have any account? Please <Link to="/register" className="text-blue-400">Register</Link></p>
                             <input type="submit" value="Login" className="btn bg-[#FF681A] w-full border-0 text-white text-lg font-semibold mt-3" />
-                            <div className="flex justify-center items-center gap-6 mt-6">
-                                <p onClick={handleGoogleLogin} className="btn">google</p>
-                                <p className="btn">facebook</p>
+                            <div className="mt-6">
+                            <div className="divider text-white font-medium">Or Login With</div>
+                                <div className="flex justify-around items-center mt-6">
+                                    <p onClick={handleGoogleLogin} className="btn flex justify-center items-center gap-3 w-2/5 text-lg font-bold"><IoLogoGoogle />google</p>
+                                    <p onClick={handleFacebookLogin} className="btn flex justify-center items-center gap-3 w-2/5 text-lg font-bold"><IoLogoFacebook />facebook</p>
+                                </div>
                             </div>
                         </form>
                     </div>

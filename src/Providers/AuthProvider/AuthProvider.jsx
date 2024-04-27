@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config"
 import { createContext } from "react";
 
@@ -12,6 +12,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
 
     const googleProvider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
 
 
     //create User Using Email Password
@@ -30,10 +31,17 @@ const AuthProvider = ({ children }) => {
     }
 
 
+    //facebook login
+    const facebookLogin = () => {
+        return signInWithPopup(auth , facebookProvider);
+    }
+
+
     const userInfo = {
         createUser,
         loginUser,
         googleLogin,
+        facebookLogin,
     }
 
 
