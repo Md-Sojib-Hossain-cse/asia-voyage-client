@@ -78,25 +78,25 @@ const Register = () => {
                         <form onSubmit={handleRegister} className="p-4 md:p-6 lg:-8 bg-[#13131344] rounded-lg drop-shadow-lg shadow-lg backdrop-blur-sm">
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="name" className="text-white text-lg font-medium">Name</label>
-                                <input type="text" name="name" id="name" className="px-3 py-2 rounded-lg" />
+                                <input type="text" name="name" id="name" placeholder="Your Name" className="px-3 py-2 rounded-lg" />
                                 {
                                     nameError ? <p className="text-yellow-400">{nameError}</p> : ""
                                 }
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="email" className="text-white text-lg font-medium">Email</label>
-                                <input type="email" name="email" id="email" className="px-3 py-2 rounded-lg" required />
+                                <input type="email" name="email" id="email" placeholder="Email" className="px-3 py-2 rounded-lg" required />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="name" className="text-white text-lg font-medium">Photo URL</label>
-                                <input type="text" name="photo" id="photo" className="px-3 py-2 rounded-lg" />
+                                <input type="text" name="photo" id="photo" placeholder="Photo URL" className="px-3 py-2 rounded-lg" />
                                 {
                                     photoUrlError ? <p className="text-yellow-400">{photoUrlError}</p> : ""
                                 }
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="password" className="text-white text-lg font-medium">Password</label>
-                                <input type="password" name="password" id="password" className="px-3 py-2 rounded-lg" />
+                                <input type="password" name="password" id="password" placeholder="Password" className="px-3 py-2 rounded-lg" />
                                 {
                                     passwordError ? <p className="text-yellow-400">{passwordError}</p> : ""
                                 }
