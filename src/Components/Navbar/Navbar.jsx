@@ -1,6 +1,20 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
+    const { userLoginStatus, logoutUser, user, setUser } = useContext(AuthContext);
+
+    //handle logout user 
+    const handleLogOut = () => {
+        logoutUser()
+            .then(
+                setUser(null)
+            )
+    }
+
+
     const navLinks = <>
         <li className="text-[#131313]"><NavLink to="/" className={({ isActive }) =>
             isActive ? "bg-transparent text-[#FF681A] text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
@@ -33,20 +47,34 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                        <p>
-                            <span className="text-2xl font-bold text-[#FF681A]">Asia</span>
-                            <span className="text-2xl font-bold text-[#131313]">Voyage</span>
-                        </p>
+                    <p>
+                        <span className="text-2xl font-bold text-[#FF681A]">Asia</span>
+                        <span className="text-2xl font-bold text-[#131313]">Voyage</span>
+                    </p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg font-medium">
                         {navLinks}
                     </ul>
                 </div>
-                <div className="navbar-end gap-3">
-                    <Link to="/register"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Register</button></Link>
-                    <Link to="login"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Login</button></Link>
-                </div>
+                {
+                    userLoginStatus ?
+                        <div className="navbar-end">
+                            <div className="dropdown dropdown-hover">
+                            <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full border border-[#131313]" />
+                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 relative right-0">
+                                    <li className="text-lg text-center font-medium py-3">{user?.displayName}</li>
+                                    <li><button onClick={handleLogOut} className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">LogOut</button></li>
+                                </ul>
+                            </div>
+                            
+                            
+                        </div> :
+                        <div className="navbar-end gap-3">
+                            <Link to="/register"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Register</button></Link>
+                            <Link to="/login"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Login</button></Link>
+                        </div>
+                }
             </div>
         </div>
     );

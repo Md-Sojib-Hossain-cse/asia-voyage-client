@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "../../firebase/firebase.config"
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
 
 export  const AuthContext = createContext();
@@ -10,6 +10,8 @@ export  const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+    const [user , setUser] = useState(null);
+    const [userLoginStatus , setUserLoginStates] = useState(false);
 
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
@@ -36,12 +38,35 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth , facebookProvider);
     }
 
+    //logout user
+    const logoutUser = () => {
+        return signOut(auth);
+    }
+
+
+    //auth state
+    useEffect(() => {
+        onAuthStateChanged(auth , currentUser => {
+            if(currentUser){
+                setUserLoginStates(true);
+            }
+            else{
+                setUserLoginStates(false);
+            }
+        })
+    } , [])
+
+
 
     const userInfo = {
         createUser,
         loginUser,
         googleLogin,
         facebookLogin,
+        logoutUser,
+        userLoginStatus,
+        user , 
+        setUser,
     }
 
 

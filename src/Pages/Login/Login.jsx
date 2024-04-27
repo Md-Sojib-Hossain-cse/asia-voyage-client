@@ -5,7 +5,7 @@ import { IoLogoGoogle, IoLogoFacebook } from "react-icons/io5";
 
 const Login = () => {
     const [error, setError] = useState(null);
-    const { loginUser, googleLogin, facebookLogin } = useContext(AuthContext);
+    const { loginUser, googleLogin, facebookLogin , setUser} = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -16,8 +16,18 @@ const Login = () => {
 
         loginUser(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                const currentUser = result.user;
+                const displayName = currentUser.displayName;
+                const email = currentUser.email;
+                const photoURL = currentUser.photoURL;
+                const userDetails = {
+                    displayName, 
+                    email, 
+                    photoURL
+                }
+                setUser(userDetails);
+                console.log(currentUser);
+                console.log(userDetails);
             })
             .catch(error => {
                 setError(error.message);
@@ -28,8 +38,16 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                const currentUser = result.user;
+                const displayName = currentUser.displayName;
+                const email = currentUser.email;
+                const photoURL = currentUser.photoURL;
+                const userDetails = {
+                    displayName, 
+                    email, 
+                    photoURL
+                }
+                setUser(userDetails);
             })
             .catch(error => {
                 setError(error.message);
@@ -40,8 +58,16 @@ const Login = () => {
     const handleFacebookLogin = () => {
         facebookLogin()
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                const currentUser = result.user;
+                const displayName = currentUser.displayName;
+                const email = currentUser.email;
+                const photoURL = currentUser.photoURL;
+                const userDetails = {
+                    displayName, 
+                    email, 
+                    photoURL
+                }
+                setUser(userDetails);
             })
             .catch(error => {
                 setError(error.message);
