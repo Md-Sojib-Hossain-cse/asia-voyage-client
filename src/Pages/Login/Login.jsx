@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { IoLogoGoogle, IoLogoFacebook } from "react-icons/io5";
 
 const Login = () => {
     const [error, setError] = useState(null);
     const { loginUser, googleLogin, facebookLogin , setUser} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -26,8 +28,12 @@ const Login = () => {
                     photoURL
                 }
                 setUser(userDetails);
-                console.log(currentUser);
-                console.log(userDetails);
+                if(location.state.pathname){
+                    navigate(location.state.pathname);
+                }
+                else{
+                    navigate("/")
+                }
             })
             .catch(error => {
                 setError(error.message);
