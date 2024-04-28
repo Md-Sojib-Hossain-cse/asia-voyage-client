@@ -4,6 +4,7 @@ import Banner from "../../Components/Banner/Banner";
 import TouristSpots from "../../Components/TouristSpots/TouristSpots";
 import { useLoaderData } from "react-router-dom";
 import ImageGellary from "../../Components/ImageGellary/ImageGellary";
+import ClientReview from "../../Components/ClientReview/ClientReview";
 
 const Home = () => {
     const {userLoginStatus , user} = useContext(AuthContext);
@@ -15,6 +16,7 @@ const Home = () => {
             <Banner></Banner>
             <TouristSpots touristSpots={touristSpots}></TouristSpots>
             <ImageGellary></ImageGellary>
+            <ClientReview></ClientReview>
         </div>
     );
 };
