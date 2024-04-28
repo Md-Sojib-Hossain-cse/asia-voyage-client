@@ -10,51 +10,53 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import UserProtectedRoute from "../ProtectedRoutes/UserProtectedRoute/UserProtectedRoute";
 import TouristSpotDetails from "../Pages/TouristSpotDetails/TouristSpotDetails";
-
+import SingleSpotDetails from "../Pages/SingleSpotDetials/SingleSpotDetails";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        children : [ 
+        children: [
             {
-                path : "/",
-                element : <Home></Home>,
-                loader : () => fetch("http://localhost:5000/touristSpots")
+                path: "/",
+                element: <Home></Home>,
+                loader: () => fetch("http://localhost:5000/touristSpots")
             },
             {
-                path : "/allSpot",
-                element : <ALlSpot></ALlSpot>,
-                loader : () => fetch("http://localhost:5000/allTouristSpot")
+                path: "/allSpot",
+                element: <ALlSpot></ALlSpot>,
+                loader: () => fetch("http://localhost:5000/allTouristSpot")
             },
             {
-                path : "/allSpot/:id",
-                element : <ALlSpot></ALlSpot>,
-                loader : () => fetch("http://localhost:5000/allTouristSpot")
+                path: "/allSpot/:id",
+                element: <UserProtectedRoute>
+                    <SingleSpotDetails></SingleSpotDetails>
+                </UserProtectedRoute>,
+                loader : ({params}) => fetch(`http://localhost:5000/allTouristSpot/${params.id}`)
             },
             {
-                path : "/addSpot",
-                element : <UserProtectedRoute>
+                path: "/addSpot",
+                element: <UserProtectedRoute>
                     <AddSpot></AddSpot>
                 </UserProtectedRoute>
             },
             {
-                path : "/myList",
-                element : <UserProtectedRoute>
+                path: "/myList",
+                element: <UserProtectedRoute>
                     <MyList></MyList>
                 </UserProtectedRoute>
             },
             {
-                path : "/register",
-                element : <Register></Register>
+                path: "/register",
+                element: <Register></Register>
             },
             {
-                path : "/login",
-                element : <Login></Login>
+                path: "/login",
+                element: <Login></Login>
             },
             {
-                path : "/touristSpotDetails/:id",
-                element : <TouristSpotDetails></TouristSpotDetails>
+                path: "/touristSpotDetails/:id",
+                element: <TouristSpotDetails></TouristSpotDetails>
             },
         ]
     },

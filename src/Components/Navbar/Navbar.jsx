@@ -67,7 +67,7 @@ const Navbar = () => {
                         user ?
                             <div className="navbar-end">
                                 <div className="dropdown dropdown-hover">
-                                    <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full border border-[#131313]" />
+                                    <img src={user?.photoURL || "https://i.ibb.co/sbkyhCp/blank-profile.png"} alt="" className="h-8 w-8 rounded-full border border-[#131313]" />
                                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 relative right-0">
                                         <li className="text-lg text-center font-medium py-3">{user?.displayName}</li>
                                         <li><button onClick={handleLogOut} className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">LogOut</button></li>

@@ -5,7 +5,7 @@ import { IoLogoGoogle, IoLogoFacebook } from "react-icons/io5";
 
 const Login = () => {
     const [error, setError] = useState(null);
-    const { loginUser, googleLogin, facebookLogin , setUser } = useContext(AuthContext);
+    const { loginUser, googleLogin, facebookLogin , setUser ,setLoading} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -15,6 +15,7 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+        setError(null)
 
         loginUser(email, password)
             .then(result => {
@@ -37,11 +38,13 @@ const Login = () => {
             })
             .catch(error => {
                 setError(error.message);
+                setLoading(false);
             })
     }
 
     //handle google login
     const handleGoogleLogin = () => {
+        setError(null)
         googleLogin()
             .then(result => {
                 const currentUser = result.user;
@@ -54,14 +57,17 @@ const Login = () => {
                     photoURL
                 }
                 setUser(userDetails);
+                navigate("/")
             })
             .catch(error => {
                 setError(error.message);
+                setLoading(false);
             })
     }
 
     //handle facebook login
     const handleFacebookLogin = () => {
+        setError(null)
         facebookLogin()
             .then(result => {
                 const currentUser = result.user;
@@ -74,9 +80,11 @@ const Login = () => {
                     photoURL
                 }
                 setUser(userDetails);
+                navigate("/")
             })
             .catch(error => {
                 setError(error.message);
+                setLoading(false);
             })
     }
 

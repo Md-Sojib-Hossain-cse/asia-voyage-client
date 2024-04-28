@@ -10,7 +10,7 @@ const Register = () => {
     const [photoUrlError, setPhotoUrlError] = useState(null);
     const [error, setError] = useState(null);
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser ,setLoading} = useContext(AuthContext);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -65,6 +65,7 @@ const Register = () => {
             })
             .catch(error => {
                 setError(error.message);
+                setLoading(false);
             })
     }
 
