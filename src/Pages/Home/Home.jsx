@@ -7,9 +7,8 @@ import ImageGellary from "../../Components/ImageGellary/ImageGellary";
 import ClientReview from "../../Components/ClientReview/ClientReview";
 
 const Home = () => {
-    const {userLoginStatus , user} = useContext(AuthContext);
+    const { user} = useContext(AuthContext);
     const touristSpots = useLoaderData();
-    console.log(userLoginStatus)
     console.log(user)
     return (
         <div>

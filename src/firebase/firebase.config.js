@@ -5,18 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    // apiKey: import.meta.process.env.API_KEY,
-    // authDomain: import.meta.process.env.AUTH_DOMAIN,
-    // projectId: import.meta.process.env.PROJECT_ID,
-    // storageBucket: import.meta.process.env.STORAGE_BUCKET,
-    // messagingSenderId: import.meta.process.env.MESSAGING_SENDER_ID,
-    // appId: import.meta.process.env.APP_ID
-    apiKey: "AIzaSyAz1WEidoUyBiu73lCukaOd-czT0RULays",
-    authDomain: "asia-voyage.firebaseapp.com",
-    projectId: "asia-voyage",
-    storageBucket: "asia-voyage.appspot.com",
-    messagingSenderId: "150877176990",
-    appId: "1:150877176990:web:3ccd7ef89008f7fa67e78f"
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

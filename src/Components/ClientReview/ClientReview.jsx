@@ -12,7 +12,7 @@ const ClientReview = () => {
                     <p className="text-center text-lg font-medium min-h-36 md:min-h-44 lg:min-h-52">A truly exceptional experience! From the warm hospitality to the breathtaking vistas, every detail was meticulously attended to. Impeccable service and unforgettable memories made.</p>
                     <div className="flex justify-between items-center">
                         <h6 className="text-xl font-semibold mt-3">From : John</h6>
-                        <div className="flex gap-1 text-yellow-500">
+                        <div className="flex gap-1 text-yellow-500 text-lg">
                             <IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar />
                         </div>
                     </div>
@@ -22,7 +22,7 @@ const ClientReview = () => {
                     <p className="text-center flex-grow text-lg font-medium min-h-36 md:min-h-44 lg:min-h-52">An adventure beyond compare! From sunrise to sunset, each moment brimmed with wonder and excitement. Exceeded every expectation I had!</p>
                     <div className="flex justify-between items-center">
                         <h6 className="text-xl font-semibold mt-3">From : Sarah</h6>
-                        <div className="flex gap-1 text-yellow-500">
+                        <div className="flex gap-1 text-yellow-500 text-lg">
                             <IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar />
                         </div>
                     </div>
@@ -32,7 +32,7 @@ const ClientReview = () => {
                     <p className="text-center flex-grow-0 text-lg font-medium min-h-36 md:min-h-44 lg:min-h-52">Set out on an incredible journey! From vibrant markets to tranquil landscapes, each day was meticulously crafted, offering unforgettable sights and experiences that will be cherished for years to come.</p>
                     <div className="flex justify-between items-center">
                         <h6 className="text-xl font-semibold mt-3">From : Michael</h6>
-                        <div className="flex gap-1 text-yellow-500">
+                        <div className="flex gap-1 text-yellow-500 text-lg">
                             <IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar />
                         </div>
                     </div>

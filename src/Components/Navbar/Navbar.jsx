@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
-    const { userLoginStatus, logoutUser, user, setUser } = useContext(AuthContext);
+    const { logoutUser, user, setUser, loading } = useContext(AuthContext);
 
     //handle logout user 
     const handleLogOut = () => {
@@ -23,17 +23,21 @@ const Navbar = () => {
             className={({ isActive }) =>
                 isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
             }
-        >All Spot</NavLink></li>
-        <li className="text-white"><NavLink to="/addSpot"
-            className={({ isActive }) =>
-                isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
-            }
-        >Add Spot</NavLink></li>
-        <li className="text-white"><NavLink to="/myList"
-            className={({ isActive }) =>
-                isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
-            }
-        >My List</NavLink></li>
+        >All Tourist Spot</NavLink></li>
+        {user &&
+            <li className="text-white"><NavLink to="/addSpot"
+                className={({ isActive }) =>
+                    isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
+                }
+            >Add Tourist Spot</NavLink></li>
+        }
+        {
+            user && <li className="text-white"><NavLink to="/myList"
+                className={({ isActive }) =>
+                    isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
+                }
+            >My List</NavLink></li>
+        }
     </>
     return (
         <div className="sticky top-0 w-full bg-[#13131344] drop-shadow-lg shadow-lg backdrop-blur-sm z-10">
@@ -58,22 +62,24 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {
-                    userLoginStatus ?
-                        <div className="navbar-end">
-                            <div className="dropdown dropdown-hover">
-                                <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full border border-[#131313]" />
-                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 relative right-0">
-                                    <li className="text-lg text-center font-medium py-3">{user?.displayName}</li>
-                                    <li><button onClick={handleLogOut} className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">LogOut</button></li>
-                                </ul>
+                    loading ?
+                        <span className="loading loading-spinner loading-md"></span> :
+                        user ?
+                            <div className="navbar-end">
+                                <div className="dropdown dropdown-hover">
+                                    <img src={user?.photoURL} alt="" className="h-8 w-8 rounded-full border border-[#131313]" />
+                                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 relative right-0">
+                                        <li className="text-lg text-center font-medium py-3">{user?.displayName}</li>
+                                        <li><button onClick={handleLogOut} className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">LogOut</button></li>
+                                    </ul>
+                                </div>
+
+
+                            </div> :
+                            <div className="navbar-end gap-3">
+                                <Link to="/register"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Register</button></Link>
+                                <Link to="/login"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Login</button></Link>
                             </div>
-
-
-                        </div> :
-                        <div className="navbar-end gap-3">
-                            <Link to="/register"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Register</button></Link>
-                            <Link to="/login"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Login</button></Link>
-                        </div>
                 }
             </div>
         </div>
