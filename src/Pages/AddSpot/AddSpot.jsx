@@ -67,11 +67,11 @@ const AddSpot = () => {
                         <form onSubmit={handleAddTouristSpot} className="p-4 md:p-6 lg:-8 bg-[#13131344] rounded-lg drop-shadow-lg shadow-lg backdrop-blur-sm  grid md:grid-cols-2 gap-6">
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="name" className="text-white text-lg font-medium">Name</label>
-                                <input type="text" name="name" id="name" placeholder="Name" className="px-3 py-2 rounded-lg" required />
+                                <input type="text" name="name" id="name" placeholder="Name" defaultValue={user?.displayName && user?.displayName} className="px-3 py-2 rounded-lg" required />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="email" className="text-white text-lg font-medium">Email</label>
-                                <input type="email" name="email" id="email" placeholder="Email" className="px-3 py-2 rounded-lg" required />
+                                <input type="email" name="email" id="email" placeholder="Email" defaultValue={user?.email && user?.email} className="px-3 py-2 rounded-lg" required />
                             </div>
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="touristSpotName" className="text-white text-lg font-medium">Tourist Spot Name</label>
