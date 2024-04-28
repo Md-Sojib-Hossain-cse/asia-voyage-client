@@ -1,6 +1,5 @@
 import Swal from 'sweetalert2'
 
-
 const AddSpot = () => {
 
     const handleAddTouristSpot = e => {
