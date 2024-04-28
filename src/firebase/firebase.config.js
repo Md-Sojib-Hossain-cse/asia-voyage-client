@@ -5,6 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
+    // apiKey: import.meta.process.env.API_KEY,
+    // authDomain: import.meta.process.env.AUTH_DOMAIN,
+    // projectId: import.meta.process.env.PROJECT_ID,
+    // storageBucket: import.meta.process.env.STORAGE_BUCKET,
+    // messagingSenderId: import.meta.process.env.MESSAGING_SENDER_ID,
+    // appId: import.meta.process.env.APP_ID
     apiKey: "AIzaSyAz1WEidoUyBiu73lCukaOd-czT0RULays",
     authDomain: "asia-voyage.firebaseapp.com",
     projectId: "asia-voyage",

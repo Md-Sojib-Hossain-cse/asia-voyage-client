@@ -9,6 +9,7 @@ import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import UserProtectedRoute from "../ProtectedRoutes/UserProtectedRoute/UserProtectedRoute";
+import TouristSpotDetails from "../Pages/TouristSpotDetails/TouristSpotDetails";
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
         children : [ 
             {
                 path : "/",
-                element : <Home></Home>
+                element : <Home></Home>,
+                loader : () => fetch("http://localhost:5000/touristSpots")
             },
             {
                 path : "/allSpot",
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path : "/login",
                 element : <Login></Login>
+            },
+            {
+                path : "/touristSpotDetails/:id",
+                element : <TouristSpotDetails></TouristSpotDetails>
             },
         ]
     },

@@ -1,0 +1,5 @@
+#touristCard:hover #cardButton{
+    background-color: #FF681A;
+    color:white;
+    transition: 400ms;
+}
