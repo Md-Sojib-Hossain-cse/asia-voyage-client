@@ -24,13 +24,13 @@ const Navbar = () => {
                 isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
             }
         >All Tourist Spot</NavLink></li>
-        {user &&
+        {/* {user && */}
             <li className="text-white"><NavLink to="/addSpot"
                 className={({ isActive }) =>
                     isActive ? "bg-transparent text-[#FF681A] lg:text-xl border-b-2 rounded-none border-[#FF681A]" : "rounded-none"
                 }
             >Add Tourist Spot</NavLink></li>
-        }
+        {/* } */}
         {
             user && <li className="text-white"><NavLink to="/myList"
                 className={({ isActive }) =>
