@@ -12,11 +12,13 @@ import UserProtectedRoute from "../ProtectedRoutes/UserProtectedRoute/UserProtec
 import TouristSpotDetails from "../Pages/TouristSpotDetails/TouristSpotDetails";
 import SingleSpotDetails from "../Pages/SingleSpotDetials/SingleSpotDetails";
 import UpdateMyListSpot from "../Pages/UpdateMyListSpot/UpdateMyListSpot";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement : <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
