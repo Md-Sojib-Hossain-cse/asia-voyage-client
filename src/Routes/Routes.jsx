@@ -24,19 +24,19 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch("http://localhost:5000/touristSpots")
+                loader: () => fetch("https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/touristSpots")
             },
             {
                 path: "/allSpot",
                 element: <ALlSpot></ALlSpot>,
-                loader: () => fetch("http://localhost:5000/allTouristSpot")
+                loader: () => fetch("https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/allTouristSpot")
             },
             {
                 path: "/allSpot/:id",
                 element: <UserProtectedRoute>
                     <SingleSpotDetails></SingleSpotDetails>
                 </UserProtectedRoute>,
-                loader : ({params}) => fetch(`http://localhost:5000/allTouristSpot/${params.id}`)
+                loader : ({params}) => fetch(`https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/allTouristSpot/${params.id}`)
             },
             {
                 path: "/addSpot",
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
                 element: <UserProtectedRoute>
                     <UpdateMyListSpot></UpdateMyListSpot>
                 </UserProtectedRoute>,
-                loader : ({params}) => fetch(`http://localhost:5000/allTouristSpot/${params.id}`)
+                loader : ({params}) => fetch(`https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/allTouristSpot/${params.id}`)
             },
             {
                 path: "/register",
@@ -68,12 +68,12 @@ const router = createBrowserRouter([
             {
                 path: "/touristSpotDetails/:id",
                 element: <TouristSpotDetails></TouristSpotDetails>,
-                loader : ({params}) => fetch(`http://localhost:5000/touristSpots/${params.id}`)
+                loader : ({params}) => fetch(`https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/touristSpots/${params.id}`)
             },
             {
                 path: "/countryBasedSpots/:country",
                 element: <CountryBasedTouristSpots></CountryBasedTouristSpots>,
-                loader : ({params}) => fetch(`http://localhost:5000/${params.country}`)
+                loader : ({params}) => fetch(`https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/${params.country}`)
             },
         ]
     },

@@ -32,7 +32,7 @@ const UpdateMyListSpot = () => {
             shortDescription
         }
 
-        fetch(`http://localhost:5000/myList/update/${loadedData._id}`, {
+        fetch(`https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/myList/update/${loadedData._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

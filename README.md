@@ -1,8 +1,21 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Asia Voyage
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Link
+
+https://asia-voyage.web.app/
+
+
+## Key Features
+
+- Light/dark mode toggle
+- Responsive for all devices
+- Users Can manage their own tourist spots my logging our website
+- Simple and friendly UI
+- Find Your best tourist places by different queries
+
+
+## Selected Category
+
+ Southeast Asia
