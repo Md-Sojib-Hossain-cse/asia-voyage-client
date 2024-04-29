@@ -11,7 +11,7 @@ const TouristSpotDetails = () => {
                 <div className="p-12  md:p-20">
                     <img src={image} alt="" className=" object-cover rounded-lg p-4 -rotate-12 border shadow-lg drop-shadow-lg" />
                 </div>
-                <div className="text-base font-normal text-[#131313] py-6 flex flex-col justify-between">
+                <div className="text-base font-normal  py-6 flex flex-col justify-between">
                     <div>
                         <h3 className="text-2xl great-vibes font-bold mb-8">{tourist_spot_name}</h3>
                         <p className="italic mb-4">{short_description}</p>

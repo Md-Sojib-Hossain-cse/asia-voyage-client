@@ -7,7 +7,7 @@ const CountriesCategory = () => {
     const [loadingCountiesData , setLoadingCountriesData] = useState(true)
 
     useEffect(() => {
-        fetch("https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/countriesCategory")
+        fetch("https://asia-voyage-server.vercel.app/countriesCategory")
             .then(res => res.json())
             .then(data => {
                 setCountries(data);

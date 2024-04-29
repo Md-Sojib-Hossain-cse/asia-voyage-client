@@ -24,7 +24,7 @@ const MyList = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/delete/${id}`, {
+                fetch(`https://asia-voyage-server.vercel.app/delete/${id}`, {
                     method : "DELETE"
                 })
                     .then(res => res.json())
@@ -45,7 +45,7 @@ const MyList = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myList/${user?.email}`)
+        fetch(`https://asia-voyage-server.vercel.app/myList/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setDisplayData(data);
@@ -59,13 +59,13 @@ const MyList = () => {
             <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
                 <div>
                     <Fade delay={1e3} cascade damping={1e-1}>
-                        <h2 className="great-vibes text-center mx-auto text-3xl font-semibold text-[#131313] mb-2 w-2/3">
+                        <h2 className="great-vibes text-center mx-auto text-3xl font-semibold mb-2 w-2/3">
                             My Travel Diary: Your Personalized Destination Collection
                         </h2>
                     </Fade>
 
                     <Fade delay={1e3} cascade damping={1e-1}>
-                        <p className="text-sm text-center mx-auto font-medium text-[#13131366] w-3/4">
+                        <p className="text-sm text-center mx-auto font-medium w-3/4">
                             Curate your own travel experiences with My List ! Explore and manage the tourist spots youve added, creating a personalized travel diary filled with unforgettable destinations.
                         </p>
                     </Fade>

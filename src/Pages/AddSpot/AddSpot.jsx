@@ -35,7 +35,7 @@ const AddSpot = () => {
             shortDescription
         }
 
-        fetch("https://asia-voyage-server-d4mk1n2iz-md-sojib-hossain-cses-projects.vercel.app/addTouristSpot", {
+        fetch("https://asia-voyage-server.vercel.app/addTouristSpot", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
