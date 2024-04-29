@@ -64,7 +64,7 @@ const AddSpot = () => {
                 <img src="https://i.ibb.co/8M7SSsY/formbg.jpg" alt="" className="h-full w-full rounded-lg opacity-80 absolute -z-10" />
                 <div>
                     <div className="p-4 md:p-8 lg:p-12">
-                        <form onSubmit={handleAddTouristSpot} className="p-4 md:p-6 lg:-8 bg-[#13131344] rounded-lg drop-shadow-lg shadow-lg backdrop-blur-sm  grid md:grid-cols-2 gap-6">
+                        <form onSubmit={handleAddTouristSpot} className="p-4 md:p-6 lg:-8 bg-[#13131344] rounded-lg drop-shadow-lg shadow-lg backdrop-blur-sm  grid md:grid-cols-2 gap-4">
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="name" className="text-white text-lg font-medium">Name</label>
                                 <input type="text" name="name" id="name" placeholder="Name" defaultValue={user?.displayName && user?.displayName} className="px-3 py-2 rounded-lg" required />

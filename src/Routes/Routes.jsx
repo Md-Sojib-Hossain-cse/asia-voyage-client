@@ -11,6 +11,7 @@ import Login from "../Pages/Login/Login";
 import UserProtectedRoute from "../ProtectedRoutes/UserProtectedRoute/UserProtectedRoute";
 import TouristSpotDetails from "../Pages/TouristSpotDetails/TouristSpotDetails";
 import SingleSpotDetails from "../Pages/SingleSpotDetials/SingleSpotDetails";
+import UpdateMyListSpot from "../Pages/UpdateMyListSpot/UpdateMyListSpot";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +46,13 @@ const router = createBrowserRouter([
                 element: <UserProtectedRoute>
                     <MyList></MyList>
                 </UserProtectedRoute>
+            },
+            {
+                path: "/myList/update/:id",
+                element: <UserProtectedRoute>
+                    <UpdateMyListSpot></UpdateMyListSpot>
+                </UserProtectedRoute>,
+                loader : ({params}) => fetch(`http://localhost:5000/allTouristSpot/${params.id}`)
             },
             {
                 path: "/register",

@@ -2,12 +2,46 @@ import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
-import { MdModeEditOutline , MdFolderDelete } from "react-icons/md";
+import { MdModeEditOutline, MdFolderDelete } from "react-icons/md";
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
+import Swal from "sweetalert2";
 
 const MyList = () => {
     const [myListLoading, setMyListLoading] = useState(true);
     const [displayData, setDisplayData] = useState(null);
     const { user } = useContext(AuthContext);
+
+
+    const handleDeleteASpot = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#FF0000",
+            cancelButtonColor: "#00FF00",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/delete/${id}`, {
+                    method : "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.deletedCount > 0){
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = displayData.filter(data => data._id !==id)
+                            setDisplayData(remaining)
+                        }
+                    })
+            }
+        });
+    }
 
 
     useEffect(() => {
@@ -57,14 +91,18 @@ const MyList = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            displayData.map((touristSpot , index) => <tr key={touristSpot._id} className="hover">
-                                                <th>{index+1}</th>
+                                            displayData.map((touristSpot, index) => <tr key={touristSpot._id} className="hover">
+                                                <th>{index + 1}</th>
                                                 <td>{touristSpot.touristSpotName}</td>
                                                 <td>{touristSpot.location}</td>
                                                 <td>${touristSpot.averageCost}</td>
                                                 <td className="flex gap-2">
-                                                    <button className="text-lg text-white p-2 rounded-full bg-[#FF681A]"><MdModeEditOutline /></button>
-                                                    <button className="text-lg text-white p-2 rounded-full bg-[#FF681A]"><MdFolderDelete /></button>
+                                                    <Link to={`/myList/update/${touristSpot?._id}`} className="my-update-element">
+                                                        <button className="text-lg text-white p-2 rounded-full bg-[#FF681A]"><MdModeEditOutline /></button>
+                                                    </Link>
+                                                    <Tooltip anchorSelect=".my-update-element" place="top">Update</Tooltip>
+                                                    <button onClick={() => handleDeleteASpot(touristSpot._id)} className="my-delete-element text-lg text-white p-2 rounded-full bg-[#FF681A]"><MdFolderDelete /></button>
+                                                    <Tooltip anchorSelect=".my-delete-element" place="top">Delete</Tooltip>
                                                 </td>
                                             </tr>)
                                         }
