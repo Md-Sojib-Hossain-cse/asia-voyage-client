@@ -102,10 +102,10 @@ const Navbar = () => {
                                 </div>
 
                             </div> :
-                            <div className="navbar-end gap-3 space-x-3">
+                            <div className="navbar-end gap-1 space-x-1">
                                 {themeController}
-                                <Link to="/register"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Register</button></Link>
-                                <Link to="/login"><button className="btn rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Login</button></Link>
+                                <Link to="/register"><button className="p-2 hover:bg-slate-100 hover:text-black rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Register</button></Link>
+                                <Link to="/login"><button className="p-2 hover:bg-slate-100 hover:text-black rounded-lg bg-[#FF681A] shadow-lg drop-shadow-lg text-white font-medium border-none">Login</button></Link>
                             </div>
                 }
             </div>
